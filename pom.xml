@@ -3,4 +3,8 @@
   <groupId>Pom</groupId>
   <artifactId>pom.automation</artifactId>
   <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>pom.scripts</module>
+  </modules>
 </project>
