@@ -1,6 +1,7 @@
 package pom.scripts;
 
 import java.net.URISyntaxException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -57,6 +58,10 @@ public class Main {
 		WebElement searchFieldElement = driver.findElement(By.id("lst-ib"));
 		searchFieldElement.sendKeys("tenis raquetas");
 		searchFieldElement.sendKeys(Keys.ENTER);
+	    List<WebElement> findElements = driver.findElements(By.xpath("//*[@id='rso']//h3/a"));
+	    for (WebElement webElement : findElements) {
+	        System.out.println(webElement.getAttribute("href"));
+		}
 	}
 
 	public void atEnd() {
