@@ -5,9 +5,7 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
-@ToString
 public class Finder {
 	@Getter @Setter private String name;
 	@Getter @Setter private String marca;
@@ -18,7 +16,25 @@ public class Finder {
 	@Getter @Setter private int precio;
 	@Getter @Setter private String descripcion;
 	
+//	public Finder() {
+//		this.name;
+//		this.marca;
+//		this.categoria = categoria.add("Competición");
+//	}
+//	
 
+	public Finder(String name, String marca) {
+		this.name = name;
+		this.marca  = marca;
+		this.categoria = categoria.add("Competición");
+	}
+
+
+	private class Test() {
+		public static void main(String args[]) {
+			Finder finder = new Finder("tabata", "puma");
+		}
+	}
 }
 
 
