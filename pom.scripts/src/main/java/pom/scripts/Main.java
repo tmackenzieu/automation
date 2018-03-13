@@ -16,42 +16,51 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
  */
 
 public class Main {
-	enum Browser {
-		CHROME, FIREFOX, IE
-	}
+
 	
-	private WebDriver driver;
-
-	public Main(Browser browser) throws URISyntaxException {
-		switch (browser) {
-		case CHROME:
-			driver = new ChromeDriver();
-			break;
-		case FIREFOX:
-			driver = new FirefoxDriver();
-			break;
-		case IE:
-			driver = new InternetExplorerDriver();
-			break;
-		}
-	}
-
-	   public void goToGoogleAndSearch() {
-	        driver.get("https://google.com");
-	        WebElement searchFieldElement = driver.findElement(By.id("lst-ib"));
-	        searchFieldElement.sendKeys("tenis raquetas");
-	        searchFieldElement.sendKeys(Keys.ENTER);
-	    }
-	   
-	public void atEnd() {
-		driver.quit();
-	}
-
 	public static void main(String[] args) throws URISyntaxException {
-		Main main = new Main(Browser.CHROME);
+		
+		Main main = new Main();
+		main.setPropertyBrowser();
+		main.initialize(Browser.CHROME);
 		main.goToGoogleAndSearch();
 		main.atEnd();
 
 	}
 
+	private WebDriver driver = null;
+	
+	public void setPropertyBrowser() {
+		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+
+	}
+
+	public void initialize(Browser browser) {
+		switch (browser) {
+		case CHROME:
+			driver = new ChromeDriver();
+			driver.manage().window().maximize();
+			break;
+		case FIREFOX:
+			driver = new FirefoxDriver();
+			driver.manage().window().maximize();
+			break;
+		case IE:
+			driver = new InternetExplorerDriver();
+			driver.manage().window().maximize();
+			break;
+		}
+	}
+
+	public void goToGoogleAndSearch() {
+		driver.get("https://google.com");
+		WebElement searchFieldElement = driver.findElement(By.id("lst-ib"));
+		searchFieldElement.sendKeys("tenis raquetas");
+		searchFieldElement.sendKeys(Keys.ENTER);
+	}
+
+	public void atEnd() {
+		driver.quit();
+		System.out.println("Automatización finalizada");
+	}
 }

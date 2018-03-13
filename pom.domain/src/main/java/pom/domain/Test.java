@@ -9,11 +9,12 @@ public class Test {
 		// TODO Auto-generated method stub
 		System.out.println("inicio");
 		Finder finder = new Finder();
-		finder.setName("taby");
-		finder.setMarca("adas");
 		List<String> lista = new ArrayList<String>();
-		lista.add("competición");
-		lista.add("holi test");
+		lista.add("Competición");
+		lista.add("Intermedio");
+		lista.add("Recreativo");
+		lista.add("Junior");
+
 		finder.setCategoria(lista);
 		System.out.println("fin " + finder);
 	}

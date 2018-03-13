@@ -17,7 +17,6 @@ public class Finder {
 	@Getter @Setter private String imagen;
 	@Getter @Setter private int precio;
 	@Getter @Setter private String descripcion;
-	
 
 }
 
